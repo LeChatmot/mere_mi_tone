@@ -37,6 +37,7 @@ if (isset($_GET['name'])) {
             var_dump($e->getMessage());
             $msgError = 'Veuillez verifier les informations entrées';
     }
+    }
 }
 ?>
 
