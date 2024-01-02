@@ -33,8 +33,6 @@ if (isset($_POST['name']) AND
     $msgError =  "Merci de remplir tous les champs";
 
     }
-
-    var_dump($_POST)
     ?>   
 
     <h1>Validation de la création</h1>

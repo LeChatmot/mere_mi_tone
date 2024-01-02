@@ -21,7 +21,7 @@ try {
     <title>Mere Mi Tone</title>
 </head>
 <body>
-<header><nav class="navbar navbar-expand-lg bg-body-tertiary">
+<header><nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding:0;">
   <div style="background-color:#D0F5A9;" class="container-fluid">
     <a class="navbar-brand" href="index.php">HOME</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@ try {
         <li class="nav-item">
           <a class="nav-link" href="page-recette.php">Recette</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item">                                                         
           <a class="nav-link" href="./Ajoutrecettes.php">Ajout Recette</a>
         </li>
         <li class="nav-item">

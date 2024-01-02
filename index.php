@@ -4,7 +4,7 @@ include 'header.php';
 <link rel="stylesheet" href="styleHomePage.css">
 <div class="header">
     <div class="image-container">
-        
+        <img src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/9/1/c/91c5549315_114935_basilic-feuille.jpg" class="img-header">
     </div>
     <div class="titles">
         <h1 class="title">
@@ -18,12 +18,13 @@ include 'header.php';
         </h4>
     </div>
     <div class="image-container">
-
+        <img class="img-header" src="https://dxpulwm6xta2f.cloudfront.net/eyJidWNrZXQiOiJhZGMtZGV2LWltYWdlcy1yZWNpcGVzIiwia2V5IjoicGl6emFfcGVwcGVyb25pLmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODB9LCJwbmciOnsicXVhbGl0eSI6ODB9LCJ3ZWJwIjp7InF1YWxpdHkiOjgwfX19">
     </div>
 </div>
+
 <?php
 try {
-    $request = $db->prepare("SELECT recette_name FROM recettes;");
+    $request = $db->prepare("SELECT recette_name, recette_difficultee, recette_img FROM recettes;");
     $request->execute([]);
     $results = $request->fetchAll();
 } catch (Exception $e) {
@@ -32,21 +33,29 @@ try {
 
 if (count($results) > 0) {
     if (count($results)>3){
-        $nextTab = [];
-        for ($i=0; $i>3; $i++) {
-            $int = rand(0, count($results));
-            array_push($nextTab, $results[$int]);
-            array_splice($results,$int,1);
-        }
-        $results = $nextTab.copy();
+        shuffle($results);
+        $results = array_slice($results, 0, 3);
     }
-    var_dump($results);
 ?>
 <div class="card-container">
-    
+    <?php foreach ($results as $recette) {?>
+        <div class="card d-flex flex-row">
+            <div>
+                <div class="card-title">
+                    <h1><?php echo $recette['recette_name']?></h1>
+                </div>
+                <div class="card-text">
+                    <h2><?= $recette['recette_difficultee']?></h2>
+                </div>
+            </div>
+            <div class="card-image-container">
+                <img src=<?= $recette['recette_img']?>>
+            </div>
+        </div>
+    <?php } ?>
 </div>
 <?php }; ?>
-
+    
 <?php
 include 'footer.php';
 ?>
