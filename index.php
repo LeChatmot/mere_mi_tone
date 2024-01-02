@@ -24,7 +24,7 @@ include 'header.php';
 
 <?php
 try {
-    $request = $db->prepare("SELECT recette_name, recette_difficultee, recette_img FROM recettes;");
+    $request = $db->prepare("SELECT recette_id, recette_name, recette_difficultee, recette_img FROM recettes;");
     $request->execute([]);
     $results = $request->fetchAll();
 } catch (Exception $e) {
@@ -49,7 +49,9 @@ if (count($results) > 0) {
                 </div>
             </div>
             <div class="card-image-container">
+                <a href="details.php?id=<?=$recette["recette_id"]?>">
                 <img src=<?= $recette['recette_img']?>>
+                </a>
             </div>
         </div>
     <?php } ?>

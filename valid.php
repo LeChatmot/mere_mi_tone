@@ -13,16 +13,16 @@ if (isset($_POST['name']) AND
 
     try{
         $request = $db->prepare('INSERT INTO recettes (
-            recette_name, recette_temps_prepa, recette_temps_cuisson, recette_ingredient, recette_difficultee, recette_nb_personne, recette_img
+            recette_temps_prepa, recette_temps_cuisson, recette_ingredient, recette_difficultee, recette_nb_personne, recette_img, recette_name
                 ) VALUES (?,?,?,?,?,?,?)');
         $request->execute([
-            $_POST['name'],
             $_POST['timeprepa'],
             $_POST['timecuisson'],
             $_POST['ingredient'],
             $_POST['difficultee'],
             $_POST['nombre'],
-            $_POST['picture']
+            $_POST['picture'],
+            $_POST['name']
                 ]);
     } catch (Exception $e){
         var_dump($e->getMessage());
