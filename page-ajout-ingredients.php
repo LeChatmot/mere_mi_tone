@@ -1,6 +1,15 @@
 <?php
 include 'header.php';
 
+
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header('Location: signUp.php');
+    exit();
+
+}
+
+
+
 try {
     $request = $db->prepare("SELECT ingredient_name FROM ingredients");
     $request->execute([]);

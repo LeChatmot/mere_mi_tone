@@ -1,6 +1,13 @@
 <?php
 include 'header.php';
 
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header('Location: signUp.php');
+    exit();
+
+}
+
+
 try {
     $request = $db->prepare("SELECT ingredient_name FROM ingredients"); 
     $request->execute([]);
@@ -13,7 +20,23 @@ try {
 
 <h1>Ajouter une recette</h1>
 
-<form action="valid.php" method="post" style="width: auto; margin: auto" >
+<form style="::-webkit-scrollbar {
+            width: 10px;
+            }
+ 
+            /* Track */
+            ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            }
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: #888;
+            }
+ 
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            }"action="valid.php" method="post" style="width: auto; margin: auto" >
     <div class="mb-3">
         <label for="name" class="form-label">Nom de la recette</label>
         <input type="text" class="form-control" name="name" id="name">
