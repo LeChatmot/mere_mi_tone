@@ -1,16 +1,10 @@
 <?php
-global $db;
 include 'header.php';
-/*if (!isset($_SESSION['user']) || empty($_SESSION ['user'])) {
-    header('Location: signup.php');
-    exit();
-}*/
+
 try {
     $request = $db->prepare("SELECT ingredient_name FROM ingredients");
     $request->execute([]);
     $ingredients = $request->fetchAll();
-
-    //var_dump($ingredient);
 
 } catch (Exception $e){
     var_dump($e->getMessage());
@@ -42,12 +36,25 @@ if (isset($_GET['name'])) {
         } catch (Exception $e) {
             var_dump($e->getMessage());
             $msgError = 'Veuillez verifier les informations entrées';
-        }
     }
 }
 ?>
 
 <h1>Ajouter un ingredient</h1>
+<?php
+// Liste de chaînes
+$listeDeChaines = array("chaine1", "chaine2", "chaine3");
+
+// Chaîne à vérifier
+$chaineAVerifier = "chaine2";
+
+// Vérifier si la chaîne se trouve dans la liste
+if (in_array($chaineAVerifier, $listeDeChaines)) {
+    echo "La chaîne est présente dans la liste.";
+} else {
+    echo "La chaîne n'est pas présente dans la liste.";
+}
+?>
 
 <form action="" method="get" class="form-control">
     <div class="mb-3">

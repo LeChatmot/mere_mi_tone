@@ -1,0 +1,9 @@
+.titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subsubtitle{
+    font-size: xx-small;
+}
