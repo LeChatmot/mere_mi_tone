@@ -21,7 +21,7 @@ try {
 
 <h1>Ajouter une recette</h1>
 
-<form action="valid.php" method="post" style="width: auto; margin: auto" >
+<form action="valid.php" method="post" style="width: auto; margin: auto">
     <div class="mb-3">
         <label for="name" class="form-label">Nom de la recette</label>
         <input type="text" class="form-control" name="name" id="name">
