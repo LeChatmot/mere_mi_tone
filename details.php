@@ -10,6 +10,7 @@ try {
 }
 ?>
 
+<main style="min-height:80vh">
 <div class="container" style="margin-top:10px;">
     <div class="row">
         <div class="col-md-12">
@@ -33,6 +34,7 @@ try {
     </div>
 </div>
 
+</main>
 <?php
 include 'footer.php';
 ?>

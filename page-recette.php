@@ -6,7 +6,7 @@ include 'header.php';
 $allrecette = $db->query('SELECT recette_name FROM recettes'); 
 if (isset($_GET['s']) AND !empty($_GET['s'])){
     $recherche = htmlspecialchars($_GET['s']);
-    $allrecette = $db->query('SELECT recette_name FROM recettes WHERE recette_name LIKE "%'.$recherche.'%" '); 
+    $allrecette = $db->query('SELECT recette_name, recette_id FROM recettes WHERE recette_name LIKE "%'.$recherche.'%" '); 
 
 }
 ?>
@@ -30,7 +30,7 @@ if (isset($_GET['s']) AND !empty($_GET['s'])){
             if($allrecette->rowCount() > 0){
                 while($recettes = $allrecette->fetch()){
             ?>
-            <p><?= $recettes['recette_name']; ?></p>
+            <a href="details.php?id=<?= $recettes['recette_id']?>"><?= $recettes['recette_name']; ?></a>
             <?php
             }
 
