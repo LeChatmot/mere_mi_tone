@@ -1,0 +1,10 @@
+.notation-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.starNotation{
+  background-image: "assets/images/starEmpty.png";
+  background-size: cover;
+}

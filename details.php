@@ -9,28 +9,30 @@ try {
     var_dump($e->getMessage());
 }
 ?>
-
-<div class="container" style="margin-top:10px;">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $recette['recette_name']?></h5>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="<?= $recette['recette_img']?>" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-md-8">
-                            <p><?= $recette['recette_temps_prepa']?> de preparation</p>
-                            <p><?= $recette['recette_temps_cuisson']?> de cuisson</p>
-                            <p><?= $recette['recette_ingredient']?></p>
-                            <p><?= $recette['recette_difficultee']?></p>
+<div>
+    <div class="container" style="margin-top:10px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $recette['recette_name']?></h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="<?= $recette['recette_img']?>" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-md-8">
+                                <p><?= $recette['recette_temps_prepa']?> de preparation</p>
+                                <p><?= $recette['recette_temps_cuisson']?> de cuisson</p>
+                                <p><?= $recette['recette_ingredient']?></p>
+                                <p><?= $recette['recette_difficultee']?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <a class="btn btn-primary" id="modification" style="margin:10px;" href="page-modification?id=<?= $_GET['id']?>">modifier</a>
 </div>
 
 <?php

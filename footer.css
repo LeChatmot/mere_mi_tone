@@ -1,6 +1,4 @@
 footer{
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-image: linear-gradient(white, #D0F5A9);
     min-height: 50px;
