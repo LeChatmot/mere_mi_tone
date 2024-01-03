@@ -49,7 +49,7 @@ if (empty ($_POST['email']) || empty ($_POST['pswrd'])) {
 
 ?>
 
-
+<main style="min-height:80vh">
 <h1 style="text-align: center">Connexion</h1>
 <form action="" method="post" style="width: 60%; margin: auto" >
     <div class="mb-3">
@@ -62,7 +62,7 @@ if (empty ($_POST['email']) || empty ($_POST['pswrd'])) {
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</main>
 
 
 

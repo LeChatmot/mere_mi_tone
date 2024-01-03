@@ -2,13 +2,31 @@
 include 'header.php';
 
 
+if (isset($_GET['logout']) and $_GET['logout'] == "true") {
+
+    $_SESSION = [];
+    session_destroy();
+    header('location: index.php');
+    exit();
+}
 
 
 
+if (isset($_GET['login']) and $_GET['login'] === "true") {
+   $msgSuccess = "Bienvenue " . $_SESSION['user']['firstname'] . " !";
+   // changement texte couleur $msgSuccess = "<span style="color:#D0F5A9;">Bienvenue</span>" . $_SESSION['user']['firstname'] . " !";
+   
+}
 
 
+include 'box.php';
 ?>
+
+
+
+
 <link rel="stylesheet" href="styleHomePage.css">
+<main style="min-height:80vh">
 <div class="header">
     <div class="image-container">
         <img src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/9/1/c/91c5549315_114935_basilic-feuille.jpg" class="img-header">
@@ -64,7 +82,8 @@ if (count($results) > 0) {
     <?php } ?>
 </div>
 <?php }; ?>
-    
+ 
+</main>
 <?php
 include 'footer.php';
 ?>

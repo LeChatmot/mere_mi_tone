@@ -2,6 +2,12 @@
 
 session_start();
 
+if (!isset($_SESSION['user'])) {
+
+  $_SESSION['user'] = [];
+}
+
+
 try {
 
     $db = new PDO('mysql:host=localhost;dbname=projet-groupe1;charset=utf8',
