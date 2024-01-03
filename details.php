@@ -35,6 +35,7 @@ try {
     <a class="btn btn-primary" id="modification" style="margin:10px;" href="page-modification?id=<?= $_GET['id']?>">modifier</a>
 </div>
 
+</main>
 <?php
 include 'footer.php';
 ?>

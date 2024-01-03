@@ -1,6 +1,15 @@
 <?php
 include 'header.php';
 
+
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header('Location: signUp.php');
+    exit();
+
+}
+
+
+
 try {
     $request = $db->prepare("SELECT ingredient_name FROM ingredients");
     $request->execute([]);
@@ -57,6 +66,8 @@ if (in_array($chaineAVerifier, $listeDeChaines)) {
 }
 ?>
 
+<main style="min-height:80vh">
+
 <form action="" method="get" class="form-control">
     <div class="mb-3">
         <label for="name" class="form-label">Nom de l'ingredient:</label>
@@ -87,6 +98,7 @@ if (in_array($chaineAVerifier, $listeDeChaines)) {
         <button type="reset" class="btn btn-danger mb-3">Annuler</button>
     </div>
 </form>
+</main>
 <?php
 include "footer.php";
 ?>

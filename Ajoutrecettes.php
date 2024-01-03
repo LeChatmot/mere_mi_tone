@@ -1,6 +1,13 @@
 <?php
 include 'header.php';
 
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header('Location: signUp.php');
+    exit();
+
+}
+
+
 try {
     $request = $db->prepare("SELECT ingredient_name FROM ingredients"); 
     $request->execute([]);
@@ -10,6 +17,7 @@ try {
     var_dump($e->getMessage()); 
 }
 ?>
+<main style="min-height:80vh">
 
 <h1>Ajouter une recette</h1>
 
@@ -55,6 +63,7 @@ try {
     </div>
     <button type="submit" class="btn btn-primary">Ajouter la recette</button>
 </form>
+</main>
 
 <?php
 include 'footer.php';

@@ -6,23 +6,23 @@ footer{
     justify-content: center;
     align-items: center;
 }
-
+ 
 .resaux{
     align-items: center;
     width: fit-content;
 }
-
+ 
 .container{
     margin: 0;
     display: flex;
     justify-content: center;
 }
-
+ 
 .footer-title{
     align-items: center;
     width: fit-content;
 }
-
+ 
 .footer-img{
     max-width: 50px;
     max-height: 50px;

@@ -1,8 +1,16 @@
 <?php 
 
+session_start();
+
+if (!isset($_SESSION['user'])) {
+
+  $_SESSION['user'] = [];
+}
+
+
 try {
 
-    $db = new PDO('mysql:host=localhost;dbname=mere_mi_tone;charset=utf8',
+    $db = new PDO('mysql:host=localhost;dbname=projet-groupe1;charset=utf8',
         'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
 } catch (Exception $e) {
@@ -38,6 +46,18 @@ try {
         <li class="nav-item">
           <a class="nav-link" href="page-ajout-ingredients.php">Ajout ingredient</a>
         </li>
+        <?php if (isset($_SESSION['user']) AND !empty($_SESSION['user'])) { ?> 
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?logout=true">Log out</a>
+        </li>
+        <?php } else { ?>
+        <li class="nav-item">
+          <a class="nav-link" href="signIn.php">Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signUp.php">Inscription</a>
+        </li>
+        <?php } ?>
       </ul>
     </div>
   </div>
